@@ -1,9 +1,9 @@
-Quick Start
+# Quick Start
 
-# Install dependencies
-npm install
+## Install dependencies
+*$ npm install*
 
-# Run the app
-npm run start
+## Run the app
+*$ npm run start*
 
-# Server runs on http://localhost:3000
+## Server runs on http://localhost:3000
