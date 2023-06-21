@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const request = require("request");
 
-const apiKey = "<YOUR API KEY: NEED to purchase>";
+const apiKey = process.env.API_KEY;
 const apiBaseUrl = "http://api.themoviedb.org/3";
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${apiKey}`;
 const imageBaseUrl = "http://image.tmdb.org/t/p/w300";
@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 });
 
 /* GET home page. */
-router.get("/", function(req, res, next) {
+router.get("/", function (req, res, next) {
   request.get(nowPlayingUrl, (error, response, movieData) => {
     const parsedData = JSON.parse(movieData);
 
@@ -32,7 +32,7 @@ router.get("/movie/:id", (req, res, next) => {
     }
     const parsedData = JSON.parse(movieData);
     res.render("single-movie", {
-      parsedData
+      parsedData,
     });
   });
 });
